@@ -11,7 +11,7 @@ def send_key_stream():
 if __name__ =='__main__':
 
     gw = Gateway(port= 3357)
-    gw.add_subroutine(name = 'bulk_keys',send_key_stream)
+    gw.add_subroutine(name = 'bulk_keys', subroutine= send_key_stream)
     gw.start(blocking= True)
 
 
