@@ -6,12 +6,8 @@ def key_callback(name, ident, buffer):
     if buffer:
         keys = from_bytes(DataType.string, buffer)
         safe_print('keys:',keys)
-        if '\n' in keys:
-            for part in [p for p in keys.split(sep='\n') if len(p)>0]:
-                typewrite(keys)
-                press('\n')
-        else:
-            typewrite(keys)
+        keys = keys.replace('\\n','\n')
+        typewrite(keys)
 
     return True
 
